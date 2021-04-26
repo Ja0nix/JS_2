@@ -14,11 +14,16 @@ const renderProduct = (title, price) => {
               </div>`;
 }
 
-const renderProducts = (list) => {
+//const renderProducts = (list) => {
+    //2. Добавьте значения по умолчанию для аргументов функции. Как можно упростить или сократить запись функций?
+    // По умолчанию list = products
+const renderProducts = (list = products) => {
     //3 задание - запятая - разделитель по умолчанию, используем .join('') в строке ниже
     const productListHTML = list.map((item) => renderProduct(item.title, item.price)).join('');
     // console.log(productListHTML);
     document.querySelector('.products').innerHTML = productListHTML;
 }
 
-renderProducts(products);
+//renderProducts(products);
+
+renderProducts();
