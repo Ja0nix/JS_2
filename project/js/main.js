@@ -15,7 +15,8 @@ const renderProduct = (title, price) => {
 }
 
 const renderProducts = (list) => {
-    const productListHTML = list.map((item) => renderProduct(item.title, item.price));
+    //3 задание - запятая - разделитель по умолчанию, используем .join('') в строке ниже
+    const productListHTML = list.map((item) => renderProduct(item.title, item.price)).join('');
     // console.log(productListHTML);
     document.querySelector('.products').innerHTML = productListHTML;
 }
