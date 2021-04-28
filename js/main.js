@@ -9,6 +9,8 @@ class ProductList {
         this.#allProducts = [];
 
         this.#fetchGoods();
+        this.addCartQuantity();
+        this.countTotalPrice();
         this.#render();
     }
 
@@ -38,6 +40,17 @@ class ProductList {
             this.#allProducts.push(productObject);
             block.insertAdjacentHTML('afterbegin', productObject.render());
         }
+    }
+
+    //Добавляю метод для изменения количества товаров, пока всем 1 автоматически, потом можно прописать при нажатии на кнопку добавления товара в корзину изменения
+    addCartQuantity() {
+        for (const good of this.#goods) {
+            good.quantity = 1;
+        }
+    }
+
+    countTotalPrice() {
+        return this.#goods.reduce((totalPrice, cartItem) => totalPrice + cartItem.price * cartItem.quantity, 0);
     }
 }
 
