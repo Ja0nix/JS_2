@@ -154,31 +154,66 @@ class ProductList {
             const productObject = new ProductItem(good);
             // console.log(productObject);
             this._allProducts.push(productObject);
+            
             block.insertAdjacentHTML('afterbegin', productObject.render());
+
+            //листнер на добавление в корзину
+            document.getElementById('addToCart'+productObject.id).addEventListener('click', () => {
+                productObject.inCart = productObject.inCart + 1;
+                //console.log(productObject.title + productObject.inCart);
+            });
+
+            // if (productObject.inCart > 0) {
+            //     //листнер на добавление в корзину
+            //     document.getElementById('addToCart'+productObject.id).addEventListener('click', () => {
+            //         productObject.inCart = productObject.inCart + 1;
+            //         //console.log(productObject.title + productObject.inCart);
+            //         block.insertAdjacentHTML('afterbegin', productObject.renderIfInCart());
+            //     });
+            //     document.getElementById('removeFromCart'+productObject.id).addEventListener('click', () => {
+            //         productObject.inCart = productObject.inCart - 1;
+            //         //console.log(productObject.title + productObject.inCart);
+            //         block.insertAdjacentHTML('afterbegin', productObject.renderIfInCart());
+            //     });
+            // } else {
+            //     //листнер на добавление в корзину
+            //     document.getElementById('addToCart'+productObject.id).addEventListener('click', () => {
+            //         productObject.inCart = productObject.inCart + 1;
+            //         console.log(productObject.title + productObject.inCart);
+            //     });
+            // }
         }
     }
 }
 
 class ProductItem {
     constructor(product, img = 'https://via.placeholder.com/200x150') {
-        this.title = product.title;
+        this.title = product.product_name;
         this.price = product.price;
-        this.id = product.id;
+        this.id = product.id_product;
         this.img = img;
+        this.inCart = 0; // тут сохраняем первоначальное значение временно (при обновлении страницы данные перетираются, надо как-то в базу записывать)
     }
 
     render() {
-        return `<div class="product-item" data-id="${this.id}">
+            return `<div class="product-item" data-id="${this.id}">
                       <img src="${this.img}" alt="Some img">
                       <div class="desc">
                           <h3>${this.title}</h3>
                           <p>${this.price} \u20bd</p>
-                          <button class="buy-btn">Купить</button>
+                          <button class="buy-btn" id="addToCart${this.id}">Купить</button>
                       </div>
                   </div>`;
     }
 }
 
+class Cart {
+
+}
+
+class CartItems {
+    
+}
 
 // Stock
 // class ProductList {
