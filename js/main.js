@@ -156,6 +156,9 @@ class ProductList {
     renderCart() {
         const block = document.querySelector('.cart');
 
+        //очищаем корзину
+        block.innerHTML = '';
+
         for (const good of this.addedToCartItems) {
             
                 const productObject = new CartItems(good);
@@ -163,7 +166,6 @@ class ProductList {
                // this.cartItems.push(productObject);
                 
                 block.insertAdjacentHTML('afterbegin', productObject.render());
-                // block.innerHTML = productObject.render();
 
         }
     }
