@@ -110,9 +110,15 @@ class ProductList {
         this.container = container;
         this._goods = [];
         this._allProducts = [];
+
+        this.cartItems = [];
+
+        //добавляю массив для добавленных в корзину продуктов
+        this.addedToCartItems = [];
         // this._sum = 0; // Bad
 
         this._fetchGoods();
+
         // this._render();
 
         // this._getProducts()
@@ -147,6 +153,21 @@ class ProductList {
         
     // }
 
+    renderCart() {
+        const block = document.querySelector('.cart');
+
+        for (const good of this.addedToCartItems) {
+            
+                const productObject = new CartItems(good);
+                // console.log(productObject);
+               // this.cartItems.push(productObject);
+                
+                block.insertAdjacentHTML('afterbegin', productObject.render());
+                // block.innerHTML = productObject.render();
+
+        }
+    }
+
     _render() {
         const block = document.querySelector(this.container);
 
@@ -157,33 +178,38 @@ class ProductList {
             
             block.insertAdjacentHTML('afterbegin', productObject.render());
 
-            //листнер на добавление в корзину
+            //листнер на добавление в корзину 
             document.getElementById('addToCart'+productObject.id).addEventListener('click', () => {
-                productObject.inCart = productObject.inCart + 1;
-                //console.log(productObject.title + productObject.inCart);
-            });
 
-            // if (productObject.inCart > 0) {
-            //     //листнер на добавление в корзину
-            //     document.getElementById('addToCart'+productObject.id).addEventListener('click', () => {
-            //         productObject.inCart = productObject.inCart + 1;
-            //         //console.log(productObject.title + productObject.inCart);
-            //         block.insertAdjacentHTML('afterbegin', productObject.renderIfInCart());
-            //     });
-            //     document.getElementById('removeFromCart'+productObject.id).addEventListener('click', () => {
-            //         productObject.inCart = productObject.inCart - 1;
-            //         //console.log(productObject.title + productObject.inCart);
-            //         block.insertAdjacentHTML('afterbegin', productObject.renderIfInCart());
-            //     });
-            // } else {
-            //     //листнер на добавление в корзину
-            //     document.getElementById('addToCart'+productObject.id).addEventListener('click', () => {
-            //         productObject.inCart = productObject.inCart + 1;
-            //         console.log(productObject.title + productObject.inCart);
-            //     });
-            // }
+                //если товар есть в массиве - увеличиваем количество, если товара в массиве нет - добавляем
+
+                let cond = this.addedToCartItems.some(function(e){ 
+                    return e.id == productObject.id;
+               });
+
+                if (cond) {
+                    // удаляем продукт с заданным айди и пушим этот же продукт с увеличенным количеством
+                    const index = this.addedToCartItems.findIndex(n => n.id === productObject.id);
+                    if (index !== -1) {
+                        this.addedToCartItems.splice(index, 1);
+                    }
+                    productObject.inCart = productObject.inCart + 1;
+                    this.addedToCartItems.push(productObject);
+                    // this.renderCart();
+
+                } else {
+                    productObject.inCart = productObject.inCart + 1;
+                    this.addedToCartItems.push(productObject);
+                    //console.log(productObject.title + productObject.inCart);
+                    // this.renderCart();
+                }
+
+                this.renderCart();
+            });
+            
         }
     }
+
 }
 
 class ProductItem {
@@ -206,13 +232,67 @@ class ProductItem {
                   </div>`;
     }
 }
+// class Cart {
+//     constructor(product) {
+//         this.title = product.title;
+//         this.price = product.price;
+//         this.id = product.id;
+//         this.img = product.img;
+//         this.inCart = product.inCart; // тут сохраняем первоначальное значение временно (при обновлении страницы данные перетираются, надо как-то в базу записывать)
 
-class Cart {
+//         this._allProducts = product._allProducts;
 
-}
+//         this.CartItems = product.addedToCartItems;
+
+//         this.renderCart();
+//     }
+
+//     renderCart() {
+//         const block = document.querySelector('.cart');
+
+//         for (const good of this.addedToCartItems) {
+
+            
+//                 const productObject = new CartItems(good);
+//                 // console.log(productObject);
+//                 this.cartItems.push(productObject);
+                
+//                 block.insertAdjacentHTML('afterbegin', productObject.render());
+
+//                 // //листнер на добавление в корзину
+//                 // document.getElementById('addToCart'+productObject.id).addEventListener('click', () => {
+//                 //     productObject.inCart = productObject.inCart + 1;
+//                 // // console.log(productObject.title + productObject.inCart);
+//                 // });
+
+//         }
+//     }
+
+// }
 
 class CartItems {
-    
+
+    constructor(good) {
+        this.title = good.title;
+        this.price = good.price;
+        this.id = good.id;
+        this.img = good.img;
+        this.inCart = good.inCart; 
+    }
+
+    render() {
+            return `<div class="product-item" data-id="${this.id}">
+                      <img src="${this.img}" alt="Some img">
+                      <div class="desc">
+                          <h3>${this.title}</h3>
+                          <p>${this.price} \u20bd</p>
+                          <p>${this.inCart} \u20bd</p>
+                          <button class="buy-btn" id="addToCart${this.id}">Добавть еще</button>
+                          <button class="buy-btn" id="removeFromart${this.id}">Меньше</button>
+                      </div>
+                  </div>`;
+    }
+
 }
 
 // Stock
@@ -267,6 +347,7 @@ class CartItems {
 //     }
 // }
 const pl = new ProductList();
+// const cart = new Cart(pl);
 // const products = [
 //     {id: 1, title: 'Notebook', price: 20000},
 //     {id: 2, title: 'Mouse', price: 1500},
