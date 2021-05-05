@@ -167,8 +167,47 @@ class ProductList {
                 
                 block.insertAdjacentHTML('afterbegin', productObject.render());
 
+             //листнер на увеличение количества товара при клике на кнопку "Добавить еще" в самой корзине 
+            document.getElementById('addToCartMore' + productObject.id).addEventListener('click', () => {
+
+                    // удаляем продукт с заданным айди и пушим этот же продукт с увеличенным количеством
+
+                    const index = this.addedToCartItems.findIndex(n => n.id === productObject.id);
+                    if (index !== -1) {
+                        this.addedToCartItems.splice(index, 1);
+                    }
+                    productObject.inCart = productObject.inCart + 1;
+                    this.addedToCartItems.push(productObject);
+
+                    this.renderCart();
+
+            });
+
+            
+
+            //листнер на уменьшение количества товара при клике на кнопку "Меньше" в самой корзине 
+            document.getElementById('removeFromart' + productObject.id).addEventListener('click', () => {
+
+                // удаляем продукт с заданным айди и пушим этот же продукт с меньшим количеством
+                const index = this.addedToCartItems.findIndex(n => n.id === productObject.id);
+                if (index !== -1) {
+                    this.addedToCartItems.splice(index, 1);
+                }
+                productObject.inCart = productObject.inCart - 1;
+                this.addedToCartItems.push(productObject);
+
+                // проверка на не положительные значения
+                if (productObject.inCart <= 0) {
+                    this.addedToCartItems.splice(index, 1);
+                }
+
+                this.renderCart();        
+        });
+
+
         }
     }
+
 
     _render() {
         const block = document.querySelector(this.container);
@@ -208,6 +247,7 @@ class ProductList {
 
                 this.renderCart();
             });
+
             
         }
     }
@@ -288,8 +328,8 @@ class CartItems {
                       <div class="desc">
                           <h3>${this.title}</h3>
                           <p>${this.price} \u20bd</p>
-                          <p>${this.inCart} \u20bd</p>
-                          <button class="buy-btn" id="addToCart${this.id}">Добавть еще</button>
+                          <p>Количесто: ${this.inCart}</p>
+                          <button class="buy-btn" id="addToCartMore${this.id}">Добавть еще</button>
                           <button class="buy-btn" id="removeFromart${this.id}">Меньше</button>
                       </div>
                   </div>`;
