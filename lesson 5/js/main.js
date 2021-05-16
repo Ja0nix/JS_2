@@ -6,7 +6,9 @@ const app = new Vue({
     catalogUrl: '/catalogData.json',
     products: [],
     imgCatalog: 'https://placehold.it/200x150',
-    searchText: ''
+    searchText: '',
+    searchResult: [],
+    show: false,
   },
   methods: {
     getJson(url){
@@ -22,9 +24,10 @@ const app = new Vue({
     filterGoods(searchText) {
       // фильтруем продукты по названию на наличие текста из поисковой строки
       // и выводим массив из найденных объектов
-      console.log(this.products.filter((el) =>
-          el.product_name.toLowerCase().indexOf(searchText.toLowerCase()) > -1
-        ))
+      this.searchResult = this.products.filter((el) =>
+        el.product_name.toLowerCase().indexOf(searchText.toLowerCase()) > -1
+      )
+      // console.log(this.searchResult)
     }
   },
   beforeCreate() {},
