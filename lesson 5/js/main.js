@@ -28,13 +28,27 @@ const app = new Vue({
       // console.log(this.cartTotalQuantity);
       // console.log(this.cartResult);
     },
-    filterGoods(searchLine) {
+    filterGoods() {
       // фильтруем продукты по названию на наличие текста из поисковой строки
       // и выводим массив из найденных объектов
-      this.searchResult = this.products.filter((el) =>
-        el.product_name.toLowerCase().indexOf(searchLine.toLowerCase()) > -1
-      )
-      // console.log(this.searchResult)
+      // this.searchResult = this.products.filter((el) =>
+      //   el.product_name.toLowerCase().indexOf(this.searchLine.toLowerCase()) > -1
+      // )
+
+      //обнуляю массив поиска
+      this.searchResult = [];
+      let line = this.searchLine;
+      let regExp = new RegExp(line, 'i');
+
+      // прохожусь по названию каждого элемента на наличие вхождения из строки поиска,
+      // при наличии - в массив поиска добавляю весь продукт
+      this.products.forEach(product => {
+        if(product.product_name.search(regExp) !== -1) {
+          this.searchResult.push(product);
+        }
+      });
+
+      console.log(this.searchResult)
     }
   },
   beforeCreate() {},
