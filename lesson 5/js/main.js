@@ -8,7 +8,7 @@ const app = new Vue({
     imgCatalog: 'https://placehold.it/200x150',
     searchLine: '',
     searchResult: [],
-    show: false,
+    // show: false,
     isVisibleCart: false,
     cartResult: [],
     cartTotalQuantity: 0
@@ -48,7 +48,9 @@ const app = new Vue({
         }
       });
 
-      console.log(this.searchResult)
+      document.getElementById('searchBlock').classList.remove("invisible");
+
+      // console.log(this.searchResult)
     }
   },
   beforeCreate() {},
