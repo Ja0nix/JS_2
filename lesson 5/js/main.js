@@ -25,7 +25,7 @@ const app = new Vue({
       // добавляем товары по клику к массив корзины
       this.cartResult.push(product);
       this.cartTotalQuantity = this.cartResult.length;
-      console.log(this.cartTotalQuantity);
+      // console.log(this.cartTotalQuantity);
       // console.log(this.cartResult);
     },
     filterGoods(searchText) {

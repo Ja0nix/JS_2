@@ -39,7 +39,7 @@ button:focus{
 /*flex-wrap: wrap;*/
 /*padding: 40px 80px;*/
 /*}*/
-.products, .searchResultBlock{
+.products, .searchResultBlock, .cartBlock{
     column-gap: 30px;
     display: grid;
     grid-template-columns: repeat(auto-fit, 200px);
@@ -47,7 +47,7 @@ button:focus{
     padding: 40px 80px;
     justify-content: space-between;
 }
-.searchResultBlock {
+.searchResultBlock, .cartBlock {
     border-bottom: 2px solid gray;
 }
 p {
