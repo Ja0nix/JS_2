@@ -17,10 +17,20 @@
                     <i class="fas fa-search"></i>
                 </button>
             </form>
-            <button class="btn-cart" type="button">Корзина</button>
+            <button class="btn-cart" type="button" @click="isVisibleCart=!isVisibleCart">Корзина: {{cartTotalQuantity}}шт</button>
         </div>
     </header>
     <main>
+        <div v-if="isVisibleCart" class="cartBlock">
+            <h2>Товары в корзине</h2>
+            <div class="product-item" v-for="product of cartResult" :key="product.id_product">
+                <img :src="imgCatalog" alt="Some img">
+                <div class="desc">
+                    <h3>{{product.product_name}}</h3>
+                    <p>{{product.price}}₽</p>
+                </div>
+            </div>
+        </div>
         <div v-if="show" class="searchResultBlock">
             <h2>Результаты поиска</h2>
             <div class="product-item" v-for="product of searchResult" :key="product.id_product">

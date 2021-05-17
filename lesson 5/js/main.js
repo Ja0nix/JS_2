@@ -9,6 +9,9 @@ const app = new Vue({
     searchText: '',
     searchResult: [],
     show: false,
+    isVisibleCart: false,
+    cartResult: [],
+    cartTotalQuantity: 0
   },
   methods: {
     getJson(url){
@@ -19,7 +22,11 @@ const app = new Vue({
         })
     },
     addProduct(product){
-      console.log(product.id_product);
+      // добавляем товары по клику к массив корзины
+      this.cartResult.push(product);
+      this.cartTotalQuantity = this.cartResult.length;
+      console.log(this.cartTotalQuantity);
+      // console.log(this.cartResult);
     },
     filterGoods(searchText) {
       // фильтруем продукты по названию на наличие текста из поисковой строки
