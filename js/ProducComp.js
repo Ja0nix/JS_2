@@ -7,9 +7,11 @@ Vue.component('products', {
             imgCatalog: 'https://placehold.it/200x150',
         }
     },
+
     methods: {
-        filter(){
-            let regexp = new RegExp(this.userSearch, 'i');
+        filter(a) {
+            // console.log(userSearch);
+            let regexp = new RegExp(a, 'i');
             this.filtered = this.products.filter(el => regexp.test(el.product_name));
         }
     },
