@@ -23,17 +23,35 @@ Vue.component('cart', {
                   });
             }
         },
+        // remove(item) {
+        //     this.$parent.getJson(`${API}/deleteFromBasket.json`)
+        //         .then(data => {
+        //             if(data.result === 1) {
+        //                 if(item.quantity>1){
+        //                     item.quantity--;
+        //                 } else {
+        //                     this.cartItems.splice(this.cartItems.indexOf(item), 1)
+        //                 }
+        //             }
+        //         })
+        // },
         remove(item) {
-            this.$parent.getJson(`${API}/deleteFromBasket.json`)
-                .then(data => {
-                    if(data.result === 1) {
-                        if(item.quantity>1){
-                            item.quantity--;
-                        } else {
-                            this.cartItems.splice(this.cartItems.indexOf(item), 1)
-                        }
-                    }
-                })
+            let find = this.cartItems.find(el => el.id_product === item.id_product);
+            if(find.quantity>1){
+                // на сервере количество уменьшаем на 1
+                this.$parent.putJson(`/api/cart/${find.id_product}`, {quantity: -1});
+                // на фронте количество уменьшаем на 1
+                find.quantity--;
+            } else {
+                // на фронте убираем товар из корзины
+                this.cartItems.splice(this.cartItems.indexOf(find), 1);
+                // на сервере убираем товар из корзины
+                this.$parent.deleteJson(`/api/cart/`, find.id_product);
+                //распарсить корзину
+                //удалить из массива элемент
+                //обратно в джисон все и отправить на сервес
+                ;
+            }
         },
     },
     mounted(){
