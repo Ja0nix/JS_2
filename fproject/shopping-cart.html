@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header center">
+        <div class="header__left">
+            <a href="index.html"><img src="img/logo.svg" alt="logo"></a>
+            <img class="header__search" src="img/search.svg" alt="search">
+        </div>
+        <div class="header__right">
+            <img src="img/menu.svg" alt="menu">
+            <a href="registration.html"><img src="img/account.svg" alt="account"></a>
+            <a href="shopping-cart.html"><img src="img/cart.svg" alt="cart" class="header__cart"></a>
+        </div>
+    </header>
+    <section class="breadcrumbs center">
+        <div class="breadcrumbs__category">SHOPPING CART</div>
+    </section>
+    <section class="checkout center">
+        <div class="checkout-product">
+            <div class="checkout-product__item">
+                <img src="img/shopping-cart/product1.png" alt="" class="checkout-product__img">
+                <div class="checkout-product__details">
+                    <a href="product.html" class="checkout-product__name">MANGO  PEOPLE  T-SHIRT</a>
+                    <div class="checkout-product__text">
+                        <p>Price: <span class="checkout-product__text-colored">$300</span></p>
+                        <p>Color: Red</p>
+                        <p>Size: Xl</p>
+                    </div>
+                    <div class="checkout-product__quantity">Quantity:
+                        <input type="number" name="checkout-quantity" id="quantity1" class="checkout-product__quantity-box" value="2">
+                    </div>
+                </div>
+                <img src="img/shopping-cart/delete.png" alt="" class="checkout-product__delete">
+            </div>
+            <div class="checkout-product__item">
+                <img src="img/shopping-cart/product2.png" alt="" class="checkout-product__img">
+                <div class="checkout-product__details">
+                    <a href="product.html" class="checkout-product__name">MANGO  PEOPLE  T-SHIRT</a>
+                    <div class="checkout-product__text">
+                        <p>Price: <span class="checkout-product__text-colored">$300</span></p>
+                        <p>Color: Red</p>
+                        <p>Size: Xl</p>
+                    </div>
+                    <div class="checkout-product__quantity">Quantity:
+                        <input type="number" name="checkout-quantity" id="quantity2" class="checkout-product__quantity-box" value="2">
+                    </div>
+                </div>
+                <img src="img/shopping-cart/delete.png" alt="" class="checkout-product__delete">
+            </div>
+            <div class="checkout-product__buttons">
+                <a href="#">CLEAR SHOPPING CART</a>
+                <a href="#">CONTINUE SHOPPING</a>
+            </div>
+        </div>
+        <div class="checkout-details">
+            <div class="checkout-details__address">
+                <form action="#" method="post">
+                    <p>SHIPPING ADDRESS</p>
+                    <input type="text" name="address" id="address" value="Bangladesh"><br>
+                    <input type="text" name="state" id="state" value="State"><br>
+                    <input type="text" name="zip" id="zip" value="Postcode / Zip"><br>
+                    <input type="submit" value="GET A QUOTE">
+                </form>
+            </div>
+            <div class="checkout-details__total">
+                <div class="checkout-details__subtotal">SUB TOTAL         $900</div>
+                <div class="checkout-details__grandtotal">GRAND TOTAL      <span>$900</span></div>
+                <a href="#" class="checkout-details__PROCEED">PROCEED TO CHECKOUT</a>
+            </div>
+        </div>
+    </section>
+    <section class="subscribe center">
+        <div class="subscribe__testimonials">
+            <img src="img/subscribe/photo.png" alt="testimonials" class="subscribe__icon">
+            <p class="subscribe__p">“Vestibulum quis porttitor dui! Quisque viverra nunc mi, <i>a pulvinar purus condimentum</i>“</p>
+        </div>
+        <div class="subscribe__formblock">
+            <h3 class="subscribe__h3">SUBSCRIBE</h3>
+            <h4 class="subscribe__h4">FOR OUR NEWLETTER AND PROMOTION</h4>
+            <form class="subscribe__form">
+                <input type="email" name="email" id="subscribe" placeholder="Enter Your Email" required>
+                <input type="submit" value="Subscribe">
+            </form>
+        </div>
+    </section>
+    <footer class="footer center">
+        <div class="footer__copy">© 2021  Brand  All Rights Reserved.</div>
+        <div class="footer__socials">
+            <img src="img/socials/1.png" alt="Stay in touch!">
+            <img src="img/socials/2.png" alt="Stay in touch!">
+            <img src="img/socials/3.png" alt="Stay in touch!">
+            <img src="img/socials/4.png" alt="Stay in touch!">
+        </div>
+    </footer>
+</body>
+</html>
