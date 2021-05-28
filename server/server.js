@@ -1,5 +1,6 @@
 const express = require('express');
 const fs = require('fs');
+const { add } = require('../../../../Downloads/lesson8/project_express_old/server/cart');
 const app = express();
 
 /**
@@ -51,7 +52,35 @@ app.post('/api/cart', (req, res) => {
         } else {
           res.send('{"result": 1}');
         }
-      })
+      });
+
+
+      fs.readFile('./server/db/stats.json', 'utf-8', (err, data) => {
+        if (err) {
+          res.sendStatus(404, JSON.stringify({result: 0, text: err}));
+        } else {
+          // парсим текущие данные
+          const changes = JSON.parse(data);
+          // добавляем новый объект
+          let newChange = {
+            action: 'add',
+            item_id: req.body.id_product,
+            product_name: req.body.product_name,
+          }
+          changes.push(newChange);
+          // пишем обратно
+          fs.writeFile('./server/db/stats.json', JSON.stringify(changes), (err) => {
+            if (err) {
+              res.send('{"result": 0}');
+            } else {
+              res.send('{"result": 1}');
+            }
+          })
+        }
+      });
+
+
+
     }
   });
 });
@@ -80,18 +109,20 @@ app.put('/api/cart/:id', (req, res) => {
   });
 });
 
+
 // Удаляем товар
 app.delete('/api/cart/:id', (req, res) => {
   fs.readFile('./server/db/userCart.json', 'utf-8', (err, data) => {
     if (err) {
       res.sendStatus(404, JSON.stringify({result: 0, text: err}));
     } else {
+                // распарсить корзину
+                // удалить из массива элемент
+                // обратно в джисон все и отправить на сервеh
       // парсим текущую корзину
       const cart = JSON.parse(data);
-      console.log(cart);
       // ищем товар по id
       const find = cart.contents.find(el => el.id_product === +req.params.id);
-      console.log(find);
       // удаляем из корзины
       cart.contents.splice(cart.contents.indexOf(find), 1);
       // пишем обратно
