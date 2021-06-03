@@ -373,7 +373,7 @@
     justify-content: space-between;
     align-items: center;
 
-    background-image: url(img/subscribe/bg.png);
+    background-image: url(../img/subscribe/bg.png);
     background-size: cover;
     background-attachment: fixed;
     min-height: 448px;
@@ -414,7 +414,7 @@
 
     &__form {
         margin-top: 32px;
-        background-image: url(img/subscribe/form.png);
+        background-image: url(../img/subscribe/form.png);
         width: 356px;
         height: 49px;
         display: flex;
