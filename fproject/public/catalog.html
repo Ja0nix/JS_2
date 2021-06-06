@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <div id="app">
     <header class="header center">
         <div class="header__left">
             <a href="index.html"><img src="img/logo.svg" alt="logo"></a>
@@ -34,87 +35,8 @@
     </section>
     <section class="catalog center">
         <div class="catalog__items">
-            <div class="catalog__item">
-                <img src="img/featured/1.png" alt="ELLERY X M'O CAPSULE" class="catalog__img">
-                <a href="#"><img src="img/featured/hover.png" alt="" class="catalog__img-hover"></a>
-                <div class="catalog__description">
-                    <a href="#"><h3 class="catalog__h3">ELLERY X M'O CAPSULE</h3></a>
-                    <p class="catalog__p">Known for her sculptural takes on traditional tailoring, Australian arbiter of cool Kym Ellery teams up with Moda Operandi.</p>
-                    <p class="catalog__price">$52.00</p>
-                </div>
-            </div>
-            <div class="catalog__item">
-                <img src="img/featured/1.png" alt="ELLERY X M'O CAPSULE" class="catalog__img">
-                <a href="#"><img src="img/featured/hover.png" alt="" class="catalog__img-hover"></a>
-                <div class="catalog__description">
-                    <a href="#"><h3 class="catalog__h3">ELLERY X M'O CAPSULE</h3></a>
-                    <p class="catalog__p">Known for her sculptural takes on traditional tailoring, Australian arbiter of cool Kym Ellery teams up with Moda Operandi.</p>
-                    <p class="catalog__price">$52.00</p>
-                </div>
-            </div>
-            <div class="catalog__item">
-                <img src="img/featured/1.png" alt="ELLERY X M'O CAPSULE" class="catalog__img">
-                <a href="#"><img src="img/featured/hover.png" alt="" class="catalog__img-hover"></a>
-                <div class="catalog__description">
-                    <a href="#"><h3 class="catalog__h3">ELLERY X M'O CAPSULE</h3></a>
-                    <p class="catalog__p">Known for her sculptural takes on traditional tailoring, Australian arbiter of cool Kym Ellery teams up with Moda Operandi.</p>
-                    <p class="catalog__price">$52.00</p>
-                </div>
-            </div>
-            <div class="catalog__item">
-                <img src="img/featured/1.png" alt="ELLERY X M'O CAPSULE" class="catalog__img">
-                <a href="#"><img src="img/featured/hover.png" alt="" class="catalog__img-hover"></a>
-                <div class="catalog__description">
-                    <a href="#"><h3 class="catalog__h3">ELLERY X M'O CAPSULE</h3></a>
-                    <p class="catalog__p">Known for her sculptural takes on traditional tailoring, Australian arbiter of cool Kym Ellery teams up with Moda Operandi.</p>
-                    <p class="catalog__price">$52.00</p>
-                </div>
-            </div>
-            <div class="catalog__item">
-                <img src="img/featured/1.png" alt="ELLERY X M'O CAPSULE" class="catalog__img">
-                <a href="#"><img src="img/featured/hover.png" alt="" class="catalog__img-hover"></a>
-                <div class="catalog__description">
-                    <a href="#"><h3 class="catalog__h3">ELLERY X M'O CAPSULE</h3></a>
-                    <p class="catalog__p">Known for her sculptural takes on traditional tailoring, Australian arbiter of cool Kym Ellery teams up with Moda Operandi.</p>
-                    <p class="catalog__price">$52.00</p>
-                </div>
-            </div>
-            <div class="catalog__item">
-                <img src="img/featured/1.png" alt="ELLERY X M'O CAPSULE" class="catalog__img">
-                <a href="#"><img src="img/featured/hover.png" alt="" class="catalog__img-hover"></a>
-                <div class="catalog__description">
-                    <a href="#"><h3 class="catalog__h3">ELLERY X M'O CAPSULE</h3></a>
-                    <p class="catalog__p">Known for her sculptural takes on traditional tailoring, Australian arbiter of cool Kym Ellery teams up with Moda Operandi.</p>
-                    <p class="catalog__price">$52.00</p>
-                </div>
-            </div>
-            <div class="catalog__item">
-                <img src="img/featured/1.png" alt="ELLERY X M'O CAPSULE" class="catalog__img">
-                <a href="#"><img src="img/featured/hover.png" alt="" class="catalog__img-hover"></a>
-                <div class="catalog__description">
-                    <a href="#"><h3 class="catalog__h3">ELLERY X M'O CAPSULE</h3></a>
-                    <p class="catalog__p">Known for her sculptural takes on traditional tailoring, Australian arbiter of cool Kym Ellery teams up with Moda Operandi.</p>
-                    <p class="catalog__price">$52.00</p>
-                </div>
-            </div>
-            <div class="catalog__item">
-                <img src="img/featured/1.png" alt="ELLERY X M'O CAPSULE" class="catalog__img">
-                <a href="#"><img src="img/featured/hover.png" alt="" class="catalog__img-hover"></a>
-                <div class="catalog__description">
-                    <a href="#"><h3 class="catalog__h3">ELLERY X M'O CAPSULE</h3></a>
-                    <p class="catalog__p">Known for her sculptural takes on traditional tailoring, Australian arbiter of cool Kym Ellery teams up with Moda Operandi.</p>
-                    <p class="catalog__price">$52.00</p>
-                </div>
-            </div>
-            <div class="catalog__item">
-                <img src="img/featured/1.png" alt="ELLERY X M'O CAPSULE" class="catalog__img">
-                <a href="#"><img src="img/featured/hover.png" alt="" class="catalog__img-hover"></a>
-                <div class="catalog__description">
-                    <a href="#"><h3 class="catalog__h3">ELLERY X M'O CAPSULE</h3></a>
-                    <p class="catalog__p">Known for her sculptural takes on traditional tailoring, Australian arbiter of cool Kym Ellery teams up with Moda Operandi.</p>
-                    <p class="catalog__price">$52.00</p>
-                </div>
-            </div>
+            <products ref="products"></products>
+                <error ref="error"></error>
         </div>
     </section>
     <div class="pagination">
@@ -169,5 +91,16 @@
             <img src="img/socials/4.png" alt="Stay in touch!">
         </div>
     </footer>
+
+</div>
+
+    <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js" integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="js/CartComp.js"></script>
+    <script src="js/ProducComp.js"></script>
+    <script src="js/FilterComp.js"></script>
+    <script src="js/ErrorComp.js"></script>
+    <script src="js/main.js"></script>
+
 </body>
 </html>
