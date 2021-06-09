@@ -64,6 +64,12 @@
   }
 }
 
+.header__left {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 .promo {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1561,5 +1567,22 @@
 .registration__perks li::before {
   margin-right: 22px;
   content: url(../img/registration/Vector.png);
+}
+
+/*search-field style import*/
+input.search-field {
+  background: none;
+  border-right: none;
+  border-bottom-color: white;
+}
+
+button.btn-search {
+  color: white;
+  background: none;
+  border: none;
+}
+
+form.search-form {
+  margin: auto 26px;
 }
 /*# sourceMappingURL=style.css.map */

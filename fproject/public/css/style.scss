@@ -55,6 +55,10 @@
      }
 }
 
+.header__left {
+    display: flex;
+}
+
 .promo {
     display: flex;
     padding-left: calc(50% - 800px);
@@ -538,3 +542,6 @@
 
 /*reg style import*/
 @import "_registration.scss";
+
+/*search-field style import*/
+@import "_search-field.scss";
