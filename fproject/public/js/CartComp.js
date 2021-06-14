@@ -70,7 +70,7 @@ Vue.component('cart-item', {
     template: `
                 <div class="cart-item">
                     <div class="product-bio">
-                        <img :src="img" alt="Some image">
+                        <img :src=cartItem.img :alt=cartItem.product_name class="cart__img">
                         <div class="product-desc">
                             <p class="product-title">{{cartItem.product_name}}</p>
                             <p class="product-quantity">Количество: {{cartItem.quantity}}</p>

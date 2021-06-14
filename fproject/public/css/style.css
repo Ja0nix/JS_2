@@ -1689,4 +1689,8 @@ form.search-form {
   display: -ms-flexbox;
   display: flex;
 }
+
+img.cart__img {
+  max-height: 80px;
+}
 /*# sourceMappingURL=style.css.map */
