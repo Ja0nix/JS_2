@@ -62,11 +62,12 @@ Vue.component('product', {
 <!--  </div>-->
                 <div class="featured__item">
                     <a href="#"></a><img :src=product.img :alt=product.product_name class="featured__img"></a>
-                    <a href ><button class="buy-btn" @click="$root.$refs.cart.addProduct(product)">Купить</button><img src="img/featured/hover.png" alt="" class="featured__img-hover"></a>
+                    <a href ><img src="img/featured/hover.png" alt="" class="featured__img-hover"></a>
                     <div class="featured__description">
                         <a href="product.html"><h3 class="featured__h3">{{product.product_name}}</h3></a>
                         <p class="featured__p">{{product.product_description}}</p>
                         <p class="featured__price">\${{product.price}}</p>
+                        <button class="buy-btn" @click="$root.$refs.cart.addProduct(product)">Купить</button>
                     </div>
                 </div>
             </div>
