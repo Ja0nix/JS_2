@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="header center">
+        <div class="header__left">
+            <a href="index.html"><img src="img/logo.svg" alt="logo"></a>
+           <!-- <img class="header__search" src="img/search.svg" alt="search"> -->
+           <filter-el ref="filter-el"></filter-el>
+        </div>
+        <div class="header__right">
+            <img src="img/menu.svg" alt="menu">
+            <a href="registration.html"><img src="img/account.svg" alt="account"></a>
+            <a href="shopping-cart.html"><img src="img/cart.svg" alt="cart" class="header__cart"></a>
+        </div>
+    </header>
+    <section class="breadcrumbs center">
+        <div class="breadcrumbs__category">REGISTRATION</div>
+    </section>
+    <section class="registration center">
+        <form action="#" class="registration__form">
+           <h2>Your Name</h2> 
+           <input type="text" name="first-name" id="first-name" value="First Name">
+           <input type="text" name="last-name" id="last-name" value="Last Name">
+           <div class="registration__form-radio">
+                <label><input type="radio" name="sex" id="male">Male</label>
+                <label><input type="radio" name="sex" id="female">Female</label>
+           </div>
+           <h2>Login details</h2>
+           <input type="email" name="email" id="email" value="Email">
+           <input type="text" name="password" id="password" value="Password">
+           <p>Please use 8 or more characters, with at least 1 number and a mixture of uppercase and lowercase letters</p> 
+           <a href="#">JOIN NOW</a>
+        </form>
+        <div class="registration__perks">
+            <h2>LOYALTY HAS ITS PERKS</h2>
+            <p>Get in on the loyalty program where you can earn points and unlock serious perks. Starting with these as soon as you join:</p>
+            <ul>
+                <li>15% off welcome offer</li>
+                <li>Free shipping, returns and exchanges on all orders</li>
+                <li>$10 off a purchase on your birthday</li>
+                <li>Early access to products</li>
+                <li>Exclusive offers & rewards</li>
+            </ul>
+        </div>
+    </section>
+    <section class="subscribe center">
+        <div class="subscribe__testimonials">
+            <img src="img/subscribe/photo.png" alt="testimonials" class="subscribe__icon">
+            <p class="subscribe__p">“Vestibulum quis porttitor dui! Quisque viverra nunc mi, <i>a pulvinar purus condimentum</i>“</p>
+        </div>
+        <div class="subscribe__formblock">
+            <h3 class="subscribe__h3">SUBSCRIBE</h3>
+            <h4 class="subscribe__h4">FOR OUR NEWLETTER AND PROMOTION</h4>
+            <form class="subscribe__form">
+                <input type="email" name="email" id="subscribe" placeholder="Enter Your Email" required>
+                <input type="submit" value="Subscribe">
+            </form>
+        </div>
+    </section>
+    <footer class="footer center">
+        <div class="footer__copy">© 2021  Brand  All Rights Reserved.</div>
+        <div class="footer__socials">
+            <img src="img/socials/1.png" alt="Stay in touch!">
+            <img src="img/socials/2.png" alt="Stay in touch!">
+            <img src="img/socials/3.png" alt="Stay in touch!">
+            <img src="img/socials/4.png" alt="Stay in touch!">
+        </div>
+    </footer>
+</body>
+</html>

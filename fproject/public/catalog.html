@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="app">
+    <header class="header center">
+        <div class="header__left">
+            <a href="index.html"><img src="img/logo.svg" alt="logo"></a>
+            <!-- <img class="header__search" src="img/search.svg" alt="search"> -->
+            <filter-el ref="filter-el"></filter-el>
+        </div>
+        <div class="header__right">
+            <img src="img/menu.svg" alt="menu">
+            <a href="registration.html"><img src="img/account.svg" alt="account"></a>
+            <a href="shopping-cart.html"><img src="img/cart.svg" alt="cart" class="header__cart"></a>
+        </div>
+    </header>
+    <section class="breadcrumbs center">
+        <div class="breadcrumbs__category">New arrivals</div>
+        <div class="breadcrumbs__path">HOME / MEN / <span class="breadcrumbs__selected"> NEW ARRIVALS </span></div>
+    </section>
+    <section class="filter center">
+        <div class="filter__filtering">Filter</div>
+        <div class="filter__sort">
+            <p class="filter__item">TRENDING NOW</p>
+            <p class="filter__item">SIZE</p>
+            <p class="filter__item">PRICE</p>
+        </div>
+    </section>
+    <section class="catalog center">
+        <div class="catalog__items">
+            <products ref="products"></products>
+                <error ref="error"></error>
+        </div>
+    </section>
+    <div class="pagination">
+        <ul class="pagination__box">
+            <li class="pagination__page_previous"><a href="#"></a></li>
+            <li><a href="#" class="pagination__page_active">1</a></li>
+            <li><a href="#" class="pagination__page">2</a></li>
+            <li><a href="#" class="pagination__page">3</a></li>
+            <li><a href="#" class="pagination__page">4</a></li>
+            <li><a href="#" class="pagination__page">5</a></li>
+            <li><a href="#" class="pagination__page_range">6...20</a></li>
+            <li class="pagination__page_next"><a href="#"></a></li>
+        </ul>
+    </div>
+    <section class="features center">
+        <div class="features__item">
+            <img src="img/features/1.png" alt="Free Delivery" class="features__icon">
+            <h3 class="features__h3">Free Delivery</h3>
+            <p class="features__p">Worldwide delivery on all. Authorit tively morph next-generation innov tion with extensive models.</p>
+        </div>
+        <div class="features__item">
+            <img src="img/features/2.png" alt="Sales & discounts" class="features__icon">
+            <h3 class="features__h3">Sales & discounts</h3>
+            <p class="features__p">Worldwide delivery on all. Authorit tively morph next-generation innov tion with extensive models.</p>
+        </div>
+        <div class="features__item">
+            <img src="img/features/3.png" alt="Quality assurance" class="features__icon">
+            <h3 class="features__h3">Quality assurance</h3>
+            <p class="features__p">Worldwide delivery on all. Authorit tively morph next-generation innov tion with extensive models.</p>
+        </div>
+    </section>
+    <section class="subscribe center">
+        <div class="subscribe__testimonials">
+            <img src="img/subscribe/photo.png" alt="testimonials" class="subscribe__icon">
+            <p class="subscribe__p">“Vestibulum quis porttitor dui! Quisque viverra nunc mi, <i>a pulvinar purus condimentum</i>“</p>
+        </div>
+        <div class="subscribe__formblock">
+            <h3 class="subscribe__h3">SUBSCRIBE</h3>
+            <h4 class="subscribe__h4">FOR OUR NEWLETTER AND PROMOTION</h4>
+            <form class="subscribe__form">
+                <input type="email" name="email" id="subscribe" placeholder="Enter Your Email" required>
+                <input type="submit" value="Subscribe">
+            </form>
+        </div>
+    </section>
+    <footer class="footer center">
+        <div class="footer__copy">© 2021  Brand  All Rights Reserved.</div>
+        <div class="footer__socials">
+            <img src="img/socials/1.png" alt="Stay in touch!">
+            <img src="img/socials/2.png" alt="Stay in touch!">
+            <img src="img/socials/3.png" alt="Stay in touch!">
+            <img src="img/socials/4.png" alt="Stay in touch!">
+        </div>
+    </footer>
+
+</div>
+
+    <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js" integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="js/CartComp.js"></script>
+    <script src="js/ProducComp.js"></script>
+    <script src="js/FilterComp.js"></script>
+    <script src="js/ErrorComp.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+</html>
